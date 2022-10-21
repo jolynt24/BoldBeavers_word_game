@@ -1,10 +1,24 @@
 package word_game;
+import java.util.Scanner;
+
 
 public class UserInput {
 
-	// CR
-	public void getInput() {
-		System.out.println("CODE ME!");
-	}	
+	public Scanner scan = new Scanner(System.in);
+
 	
-}
+		// TODO Auto-generated method stub
+			// CR
+		
+	public String getInput() {
+		
+		
+		
+		System.out.println("Please input direction: ");
+	      String input= scan.nextLine();
+	      return input;
+		
+	}	
+
+	
+	}

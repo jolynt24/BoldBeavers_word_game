@@ -1,13 +1,23 @@
 package word_game;
 
+import java.util.Scanner;
+
 public class Game {
 
-	public int xCord;
-	public int yCord;
+	public int xCord = 0;
+	public int yCord = 0;
 	public int gridWidth;
 	public int gridHeight;
 	public int goalX;
 	public int goalY;
+	
+	public boolean isRunning = true;
+	
+	public Scanner userInput;
+	
+	public Game(Scanner scanner) {
+		this.userInput = scanner;
+	}
 	
 	// FS
 	// Method to set bounds for the game grid
@@ -31,8 +41,38 @@ public class Game {
 	}
 	
 	// MM
-	public void move() {
-		System.out.println("CODE ME!");
+	public void move(String user_input) {
+		
+		switch (user_input.toUpperCase()) {
+		
+		case "W":
+			System.out.println("MOVE: UP");
+			goalY ++;
+			break;
+		case "A":
+			System.out.println("MOVE: LEFT");
+			goalX --;
+			break;
+		case "S":
+			System.out.println("MOVE: DOWN");
+			goalY --;
+			break;
+		case "D":
+			System.out.println("MOVE: RIGHT");
+			goalX ++;
+			break;
+			
+		}
+		
+		boolean is_valid = true;
+		//boolean is_valid = this.checkBounds(goalX, goalY);
+		
+		if (is_valid == false) {
+			
+			this.quit();
+			
+		}
+		
 	}
 
 	// JT
@@ -44,11 +84,7 @@ public class Game {
 	public void setGoal() {
 		System.out.println("CODE ME!");
 	}
-	
-	// MM
-	public void updatePos() {
-		System.out.println("CODE ME!");
-	}
+
 	
 	// CR
 	public void showResult() {
@@ -62,7 +98,7 @@ public class Game {
 
 	// JT
 	public void start() {
-		System.out.println("CODE ME!");
+		
 	}
 	
 }
