@@ -77,12 +77,26 @@ public class Game {
 
 	// JT
 	public void checkGoal() {
-		System.out.println("CODE ME!");
+		// Checks if the user coordinates are the same as the goal coordinates
+		// Inputs: X and Y coordinates of the user
+		// Output: Returns true if the user coordinates = goal coordinates, otherwise false
+		
+		if(userX==goalX && userY==goalY) return true;
+		return false;	
 	}
 	
 	// JT
 	public void setGoal() {
-		System.out.println("CODE ME!");
+		// Sets random goal coordinates in the grid
+		// Inputs: Takes the instance values of 'gridWidth' and 'gridHeight'
+		// Output: Returns random values of goalX and goalY within the range of 0 - gridWidth and 0 - gridHeight
+		
+		/*Random r = new Random();
+		this.goalX = r.nextInt(0) + gridWidth;
+		this.goalY = r.nextInt(0) + gridHeight;*/
+		
+		this.goalX = goalX;
+		this.goalY = goalY;
 	}
 
 	
