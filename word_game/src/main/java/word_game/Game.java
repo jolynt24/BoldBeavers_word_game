@@ -10,15 +10,25 @@ public class Game {
 	public int goalY;
 	
 	// FS
+	// Method to set bounds for the game grid
 	public void setBounds(int boundX, int boundY) {
 		this.gridWidth = boundX;
 		this.gridHeight = boundY;
 	}
 	
 	// FS
-	public void checkBounds() {
-		System.out.println("CODE ME!");
-	}	
+	// Method to check if the new position of the user is out of bounds
+	public boolean outOfBounds(int newX, int newY) {
+		if (newX < 0 || newX > gridWidth) {
+			return true;
+		}
+		else if (newY < 0 || newY > gridHeight) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 	
 	// MM
 	public void move() {
