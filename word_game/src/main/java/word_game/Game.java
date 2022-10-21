@@ -76,7 +76,7 @@ public class Game {
 	}
 
 	// JT
-	public void checkGoal() {
+	public boolean checkGoal(int userX, int userY) {
 		// Checks if the user coordinates are the same as the goal coordinates
 		// Inputs: X and Y coordinates of the user
 		// Output: Returns true if the user coordinates = goal coordinates, otherwise false
