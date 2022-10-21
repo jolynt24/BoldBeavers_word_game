@@ -10,9 +10,10 @@ public class Game {
 	public int goalY;
 	
 	// FS
-	public void setBounds() {
-		System.out.println("CODE ME!");
-	}	
+	public void setBounds(int boundX, int boundY) {
+		this.gridWidth = boundX;
+		this.gridHeight = boundY;
+	}
 	
 	// FS
 	public void checkBounds() {
