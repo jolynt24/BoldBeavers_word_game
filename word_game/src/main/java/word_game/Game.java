@@ -57,7 +57,7 @@ public class Game {
 	
 	// FR
 	public void quit() {
-		System.out.println("CODE ME!");
+		this.isRunning = false;
 	}
 
 	// JT
