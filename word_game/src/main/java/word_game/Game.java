@@ -88,7 +88,6 @@ public class Game {
 	// JT
 	public void start() {
 		
-		System.out.println("RUNNING");
 		
 	}
 	
