@@ -7,7 +7,7 @@ public class runner {
 		UserInput userInput = new UserInput();
 		Game newGame = new Game(userInput);
 		newGame.start();
-		
+		newGame.userInput.scan.close();
 		
 		
 	}
