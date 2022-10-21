@@ -102,7 +102,8 @@ public class Game {
 	
 	// CR
 	public void showResult() {
-		System.out.println("CODE ME!");
+		System.out.println(this.xCord);
+		System.out.println(this.yCord);
 	}
 	
 	// FR
