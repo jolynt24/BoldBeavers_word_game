@@ -118,9 +118,10 @@ public class Game {
 		this.setBounds(4, 4); //hard-coded
 		System.out.println("Your current position: (0,0)");
 		while(isRunning) {
+			this.showResult();
 			System.out.println("Where would you like to move?");
-			UserInput in = new UserInput();
-			this.move(in.toString());
+
+			this.move(this.userInput.getInput());
 			if(this.outOfBounds(xCord, yCord)) {
 				System.out.println("You are out of bounds! GAME OVER :(");
 				this.quit();
@@ -129,7 +130,6 @@ public class Game {
 			}
 			if(this.checkGoal(xCord, yCord)) {
 				System.out.println("FINALLY, you found the goal :)");
-				this.showResults();
 				this.quit();
 				continue;
 			}
