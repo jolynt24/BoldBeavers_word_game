@@ -61,6 +61,9 @@ public class Game {
 			System.out.println("MOVE: RIGHT");
 			xCord ++;
 			break;
+		default:
+			System.out.println("Invalid move! >:(");
+			break;
 			
 		}
 		
@@ -102,8 +105,8 @@ public class Game {
 	
 	// CR
 	public void showResult() {
-		System.out.println(this.xCord);
-		System.out.println(this.yCord);
+		System.out.println("Your X cord: " + this.xCord);
+		System.out.println("Your Y cord: " + this.yCord);
 	}
 	
 	// FR
@@ -113,6 +116,9 @@ public class Game {
 
 	// JT
 	public void start() {
+		
+		System.out.println("WASD to move! :)");
+		
 		//Start of the game
 		System.out.println("======== WELCOME ========");
 		this.setGoal(2, 3); //hard-coded
