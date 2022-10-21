@@ -102,7 +102,8 @@ public class Game {
 	
 	// CR
 	public void showResult() {
-		System.out.println("CODE ME!");
+		System.out.println(this.xCord);
+		System.out.println(this.yCord);
 	}
 	
 	// FR
@@ -129,7 +130,7 @@ public class Game {
 			}
 			if(this.checkGoal(xCord, yCord)) {
 				System.out.println("FINALLY, you found the goal :)");
-				this.showResults();
+				this.showResult();
 				this.quit();
 				continue;
 			}
