@@ -11,6 +11,8 @@ public class Game {
 	public int goalX;
 	public int goalY;
 	
+	public boolean isRunning = true;
+	
 	public Scanner userInput;
 	
 	public Game(Scanner scanner) {
@@ -85,7 +87,7 @@ public class Game {
 
 	// JT
 	public void start() {
-		System.out.println("CODE ME!");
+		
 	}
 	
 }
