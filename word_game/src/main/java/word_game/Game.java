@@ -20,8 +20,33 @@ public class Game {
 	}	
 	
 	// MM
-	public void move() {
-		System.out.println("CODE ME!");
+	public void move(String user_input) {
+		
+		switch (user_input.toUpperCase()) {
+		
+		case "W":
+			goalY ++;
+			break;
+		case "A":
+			goalX --;
+			break;
+		case "S":
+			goalY --;
+			break;
+		case "D":
+			goalX ++;
+			break;
+			
+		}
+		
+		boolean is_valid = this.checkBounds(goalX, goalY);
+		
+		if (is_valid == false) {
+			
+			this.quit();
+			
+		}
+		
 	}
 
 	// JT
@@ -33,11 +58,7 @@ public class Game {
 	public void setGoal() {
 		System.out.println("CODE ME!");
 	}
-	
-	// MM
-	public void updatePos() {
-		System.out.println("CODE ME!");
-	}
+
 	
 	// CR
 	public void showResult() {
