@@ -13,10 +13,10 @@ public class Game {
 	
 	public boolean isRunning = true;
 	
-	public Scanner userInput;
+	public UserInput userInput;
 	
-	public Game(Scanner scanner) {
-		this.userInput = scanner;
+	public Game(UserInput userInput2) {
+		this.userInput = userInput2;
 	}
 	
 	// FS
@@ -87,6 +87,8 @@ public class Game {
 
 	// JT
 	public void start() {
+		
+		System.out.println("RUNNING");
 		
 	}
 	
