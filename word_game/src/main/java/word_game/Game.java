@@ -20,14 +20,25 @@ public class Game {
 	}
 	
 	// FS
-	public void setBounds() {
-		System.out.println("CODE ME!");
-	}	
+	// Method to set bounds for the game grid
+	public void setBounds(int boundX, int boundY) {
+		this.gridWidth = boundX;
+		this.gridHeight = boundY;
+	}
 	
 	// FS
-	public void checkBounds() {
-		System.out.println("CODE ME!");
-	}	
+	// Method to check if the new position of the user is out of bounds
+	public boolean outOfBounds(int newX, int newY) {
+		if (newX < 0 || newX > gridWidth) {
+			return true;
+		}
+		else if (newY < 0 || newY > gridHeight) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 	
 	// MM
 	public void move(String user_input) {
@@ -36,19 +47,19 @@ public class Game {
 		
 		case "W":
 			System.out.println("MOVE: UP");
-			goalY ++;
+			yCord ++;
 			break;
 		case "A":
 			System.out.println("MOVE: LEFT");
-			goalX --;
+			xCord --;
 			break;
 		case "S":
 			System.out.println("MOVE: DOWN");
-			goalY --;
+			yCord --;
 			break;
 		case "D":
 			System.out.println("MOVE: RIGHT");
-			goalX ++;
+			xCord ++;
 			break;
 			
 		}
@@ -65,13 +76,27 @@ public class Game {
 	}
 
 	// JT
-	public void checkGoal() {
-		System.out.println("CODE ME!");
+	public boolean checkGoal(int userX, int userY) {
+		// Checks if the user coordinates are the same as the goal coordinates
+		// Inputs: X and Y coordinates of the user
+		// Output: Returns true if the user coordinates = goal coordinates, otherwise false
+		
+		if(userX==goalX && userY==goalY) return true;
+		return false;	
 	}
 	
 	// JT
-	public void setGoal() {
-		System.out.println("CODE ME!");
+	public void setGoal(int goalX, int goalY) { //hard-coded for demo
+		// Sets random goal coordinates in the grid
+		// Inputs: Takes the instance values of 'gridWidth' and 'gridHeight'
+		// Output: Returns random values of goalX and goalY within the range of 0 - gridWidth and 0 - gridHeight
+		
+		/*Random r = new Random();
+		this.goalX = r.nextInt(0) + gridWidth;
+		this.goalY = r.nextInt(0) + gridHeight;*/
+		
+		this.goalX = goalX;
+		this.goalY = goalY;
 	}
 
 	
@@ -82,11 +107,34 @@ public class Game {
 	
 	// FR
 	public void quit() {
-		System.out.println("CODE ME!");
+		this.isRunning = false;
 	}
 
 	// JT
 	public void start() {
+		//Start of the game
+		System.out.println("======== WELCOME ========");
+		this.setGoal(2, 3); //hard-coded
+		this.setBounds(4, 4); //hard-coded
+		System.out.println("Your current position: (0,0)");
+		while(isRunning) {
+			System.out.println("Where would you like to move?");
+			UserInput in = new UserInput();
+			this.move(in.toString());
+			if(this.outOfBounds(xCord, yCord)) {
+				System.out.println("You are out of bounds! GAME OVER :(");
+				this.quit();
+				continue;
+				
+			}
+			if(this.checkGoal(xCord, yCord)) {
+				System.out.println("FINALLY, you found the goal :)");
+				this.showResults();
+				this.quit();
+				continue;
+			}
+		}
+		
 		
 		
 	}
