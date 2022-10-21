@@ -47,19 +47,19 @@ public class Game {
 		
 		case "W":
 			System.out.println("MOVE: UP");
-			goalY ++;
+			yCord ++;
 			break;
 		case "A":
 			System.out.println("MOVE: LEFT");
-			goalX --;
+			xCord --;
 			break;
 		case "S":
 			System.out.println("MOVE: DOWN");
-			goalY --;
+			yCord --;
 			break;
 		case "D":
 			System.out.println("MOVE: RIGHT");
-			goalX ++;
+			xCord ++;
 			break;
 			
 		}
@@ -86,7 +86,7 @@ public class Game {
 	}
 	
 	// JT
-	public void setGoal() {
+	public void setGoal(int goalX, int goalY) { //hard-coded for demo
 		// Sets random goal coordinates in the grid
 		// Inputs: Takes the instance values of 'gridWidth' and 'gridHeight'
 		// Output: Returns random values of goalX and goalY within the range of 0 - gridWidth and 0 - gridHeight
@@ -112,6 +112,28 @@ public class Game {
 
 	// JT
 	public void start() {
+		//Start of the game
+		System.out.println("======== WELCOME ========");
+		this.setGoal(2, 3); //hard-coded
+		this.setBounds(4, 4); //hard-coded
+		System.out.println("Your current position: (0,0)");
+		while(isRunning) {
+			System.out.println("Where would you like to move?");
+			UserInput in = new UserInput();
+			this.move(in.toString());
+			if(this.outOfBounds(xCord, yCord)) {
+				System.out.println("You are out of bounds! GAME OVER :(");
+				this.quit();
+				continue;
+				
+			}
+			if(this.checkGoal(xCord, yCord)) {
+				System.out.println("FINALLY, you found the goal :)");
+				this.showResults();
+				this.quit();
+				continue;
+			}
+		}
 		
 	}
 	
