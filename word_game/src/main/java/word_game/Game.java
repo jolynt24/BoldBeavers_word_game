@@ -110,14 +110,18 @@ public class Game {
 		return status;
 	}
 	
+	// Gets message specific to game entity 
 	public String printMessage(GameEntity ge) {
+		return ge.message;
+		/*
 		if (ge.getType() == "Monster") {
 			return "Oh no! You have encountered a monster";
 		}
-		else if (ge.getType() == "Treasure") {
+		else if (ge.message == "Treasure") {
 			return "Yay you found the treasure!";
 			quit();
-		}
+		}*/
+		
 	}
 
 	// JT

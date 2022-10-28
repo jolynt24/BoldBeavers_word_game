@@ -10,6 +10,8 @@ public class runner {
 		newGame.userInput.scan.close();
 		
 		
+		newGame.addEntity(monster);
+		newGame.addEntity(treasure);
 	}
 
 }
