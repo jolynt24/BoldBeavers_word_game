@@ -89,11 +89,30 @@ public class Game {
 		
 		// iterate through the entities and their locations 
 		for (int i; i<entities.size(); i++) {
-			if(xCord == entities.get(i).getX() && yCord == entities.get(i).getY()) {
-				
+			if(checkEntity(entities.get(i) == true)) {
+				printMessage(entities.get(i));
 			}
 		}
 		
+	}
+	
+	// method to check if the entity has been encountered
+	public boolean checkEntity(GameEntity ge) {
+		boolean status = false;
+		if(xCord == ge.getX() && yCord == ge.getY()) {
+			status = true;
+		}
+		return status;
+	}
+	
+	public String printMessage(GameEntity ge) {
+		if (ge.getType() == "Monster") {
+			return "Oh no! You have encountered a monster";
+		}
+		else if (ge.getType() == "Treasure") {
+			return "Yay you found the treasure!";
+			quit();
+		}
 	}
 
 	// JT
