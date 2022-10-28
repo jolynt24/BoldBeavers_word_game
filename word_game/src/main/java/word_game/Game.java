@@ -92,17 +92,17 @@ public class Game {
 	
 	// Checking whether if the player has encountered an entity and printing out appropriate message
 	public void checkEntity(int xCord, int yCord) {
-		
-		// iterate through the entities and their locations 
-		for (int i; i<entities.size(); i++) {
-			if(foundEntity(entities.get(i) == true)) {
-				printMessage(entities.get(i));
+		// iterate through the entities and their locations
+		for (int i=0; i<entities.size(); i++) {
+			if(foundEntity(entities.get(i), xCord, yCord) == true) {
+				System.out.println(entities.get(i).getMessage());
+				// End game?
 			}
 		}
 	}
 	
 	// method to check if the entity has been encountered
-	public boolean foundEntity(GameEntity ge) {
+	public boolean foundEntity(GameEntity ge, int xCord, int yCord) {
 		boolean status = false;
 		if(xCord == ge.getLocationX() && yCord == ge.getLocationY()) {
 			status = true;
@@ -110,19 +110,6 @@ public class Game {
 		return status;
 	}
 	
-	// Gets message specific to game entity 
-	public String printMessage(GameEntity ge) {
-		return ge.getMessage();
-		/*
-		if (ge.getType() == "Monster") {
-			return "Oh no! You have encountered a monster";
-		}
-		else if (ge.message == "Treasure") {
-			return "Yay you found the treasure!";
-			quit();
-		}*/
-		
-	}
 
 	// JT
 	public boolean checkGoal(int userX, int userY) {
