@@ -1,5 +1,6 @@
 package word_game;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Game {
@@ -10,6 +11,8 @@ public class Game {
 	public int gridHeight;
 	public int goalX;
 	public int goalY;
+	
+	public ArrayList<GameEntity> entities = new ArrayList<GameEntity>();;
 	
 	public boolean isRunning = true;
 	
@@ -48,18 +51,22 @@ public class Game {
 		case "W":
 			System.out.println("MOVE: UP");
 			yCord ++;
+			checkEntity(xCord, yCord);
 			break;
 		case "A":
 			System.out.println("MOVE: LEFT");
 			xCord --;
+			checkEntity(xCord, yCord);
 			break;
 		case "S":
 			System.out.println("MOVE: DOWN");
 			yCord --;
+			checkEntity(xCord, yCord);
 			break;
 		case "D":
 			System.out.println("MOVE: RIGHT");
 			xCord ++;
+			checkEntity(xCord, yCord);
 			break;
 		default:
 			System.out.println("Invalid move! >:(");
@@ -77,6 +84,32 @@ public class Game {
 		}
 		
 	}
+
+	// Adding entities to the collection
+	public void addEntity(GameEntity ge) {
+		entities.add(ge);
+	}
+	
+	// Checking whether if the player has encountered an entity and printing out appropriate message
+	public void checkEntity(int xCord, int yCord) {
+		// iterate through the entities and their locations
+		for (int i=0; i<entities.size(); i++) {
+			if(foundEntity(entities.get(i), xCord, yCord) == true) {
+				System.out.println(entities.get(i).getMessage());
+				this.quit();
+			}
+		}
+	}
+	
+	// method to check if the entity has been encountered
+	public boolean foundEntity(GameEntity ge, int xCord, int yCord) {
+		boolean status = false;
+		if(xCord == ge.getLocationX() && yCord == ge.getLocationY()) {
+			status = true;
+		}
+		return status;
+	}
+	
 
 	// JT
 	public boolean checkGoal(int userX, int userY) {
@@ -111,39 +144,32 @@ public class Game {
 	
 	// FR
 	public void quit() {
-		this.isRunning = false;
+		System.out.println("GAME OVER");
+		xCord = 0;
+		yCord = 0;
+		isRunning = false;
+		
 	}
 
 	// JT
 	public void start() {
-		
 		System.out.println("WASD to move! :)");
 		
 		//Start of the game
 		System.out.println("======== WELCOME ========");
-		this.setGoal(2, 3); //hard-coded
-		this.setBounds(4, 4); //hard-coded
-		System.out.println("Your current position: (0,0)");
+
 		while(isRunning) {
 			this.showResult();
 			System.out.println("Where would you like to move?");
 
 			this.move(this.userInput.getInput());
 			if(this.outOfBounds(xCord, yCord)) {
-				System.out.println("You are out of bounds! GAME OVER :(");
+				System.out.println("You are out of bounds!");
 				this.quit();
-				continue;
-				
-			}
-			if(this.checkGoal(xCord, yCord)) {
-				System.out.println("FINALLY, you found the goal :)");
-				this.quit();
+				System.exit(0);
 				continue;
 			}
 		}
-		
-		
-		
 	}
 	
 }
