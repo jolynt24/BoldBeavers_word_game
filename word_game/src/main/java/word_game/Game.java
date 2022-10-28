@@ -145,33 +145,9 @@ public class Game {
 	// FR
 	public void quit() {
 		System.out.println("GAME OVER");
-		System.out.println("Play again? y/n");
-		String input = this.userInput.getInput();
 		xCord = 0;
 		yCord = 0;
-		
-		switch(input.toUpperCase()) {
-		case "Y":
-			this.isRunning = true;
-			break;
-			
-		case "N":
-			this.isRunning = false;
-			break;
-			
-		default:
-			System.out.println("Invalid input");
-			break;
-		}
-		
-		/*
-		if (input == "y") {
-			this.isRunning = true;
-			this.start();
-		}
-		else if (input == "n") {
-			this.isRunning = false;
-		}*/
+		isRunning = false;
 		
 	}
 
