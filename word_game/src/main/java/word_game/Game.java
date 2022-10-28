@@ -12,6 +12,8 @@ public class Game {
 	public int goalX;
 	public int goalY;
 	
+	public ArrayList<GameEntity> entities = new ArrayList<GameEntity>();;
+	
 	public boolean isRunning = true;
 	
 	public UserInput userInput;
@@ -82,22 +84,25 @@ public class Game {
 		}
 		
 	}
+
+	// Adding entities to the collection
+	public void addEntity(GameEntity ge) {
+		entities.add(ge);
+	}
 	
-	// Checking whether if the player has encountered the entity 
-	public void checkEntity(int xCord, int yCord) {
-		ArrayList<GameEntity> entities = new ArrayList<GameEntity>();
+	// Checking whether if the player has encountered an entity and printing out appropriate message
+	public void checkAllEntities(int xCord, int yCord) {
 		
 		// iterate through the entities and their locations 
 		for (int i; i<entities.size(); i++) {
-			if(checkEntity(entities.get(i) == true)) {
+			if(foundEntity(entities.get(i) == true)) {
 				printMessage(entities.get(i));
 			}
 		}
-		
 	}
 	
 	// method to check if the entity has been encountered
-	public boolean checkEntity(GameEntity ge) {
+	public boolean foundEntity(GameEntity ge) {
 		boolean status = false;
 		if(xCord == ge.getX() && yCord == ge.getY()) {
 			status = true;
