@@ -18,7 +18,7 @@ public class UserInput {
 	      String input= scan.nextLine();
 	      return input;
 		
-	}	
+	}
 
 	
 	}
