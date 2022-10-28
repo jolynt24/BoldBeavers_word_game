@@ -91,7 +91,7 @@ public class Game {
 	}
 	
 	// Checking whether if the player has encountered an entity and printing out appropriate message
-	public void checkAllEntities(int xCord, int yCord) {
+	public void checkEntity(int xCord, int yCord) {
 		
 		// iterate through the entities and their locations 
 		for (int i; i<entities.size(); i++) {
@@ -104,7 +104,7 @@ public class Game {
 	// method to check if the entity has been encountered
 	public boolean foundEntity(GameEntity ge) {
 		boolean status = false;
-		if(xCord == ge.getX() && yCord == ge.getY()) {
+		if(xCord == ge.getLocationX() && yCord == ge.getLocationY()) {
 			status = true;
 		}
 		return status;
@@ -112,7 +112,7 @@ public class Game {
 	
 	// Gets message specific to game entity 
 	public String printMessage(GameEntity ge) {
-		return ge.message;
+		return ge.getMessage();
 		/*
 		if (ge.getType() == "Monster") {
 			return "Oh no! You have encountered a monster";
