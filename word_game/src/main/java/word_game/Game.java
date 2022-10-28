@@ -166,6 +166,7 @@ public class Game {
 			if(this.outOfBounds(xCord, yCord)) {
 				System.out.println("You are out of bounds!");
 				this.quit();
+				System.exit(0);
 				continue;
 			}
 		}
