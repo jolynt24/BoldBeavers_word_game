@@ -13,10 +13,10 @@ public class Game {
 	
 	public boolean isRunning = true;
 	
-	public Scanner userInput;
+	public UserInput userInput;
 	
-	public Game(Scanner scanner) {
-		this.userInput = scanner;
+	public Game(UserInput userInput2) {
+		this.userInput = userInput2;
 	}
 	
 	// FS
@@ -61,6 +61,9 @@ public class Game {
 			System.out.println("MOVE: RIGHT");
 			xCord ++;
 			break;
+		default:
+			System.out.println("Invalid move! >:(");
+			break;
 			
 		}
 		
@@ -102,7 +105,8 @@ public class Game {
 	
 	// CR
 	public void showResult() {
-		System.out.println("CODE ME!");
+		System.out.println("Your X cord: " + this.xCord);
+		System.out.println("Your Y cord: " + this.yCord);
 	}
 	
 	// FR
@@ -112,15 +116,19 @@ public class Game {
 
 	// JT
 	public void start() {
+		
+		System.out.println("WASD to move! :)");
+		
 		//Start of the game
 		System.out.println("======== WELCOME ========");
 		this.setGoal(2, 3); //hard-coded
 		this.setBounds(4, 4); //hard-coded
 		System.out.println("Your current position: (0,0)");
 		while(isRunning) {
+			this.showResult();
 			System.out.println("Where would you like to move?");
-			UserInput in = new UserInput();
-			this.move(in.toString());
+
+			this.move(this.userInput.getInput());
 			if(this.outOfBounds(xCord, yCord)) {
 				System.out.println("You are out of bounds! GAME OVER :(");
 				this.quit();
@@ -129,11 +137,12 @@ public class Game {
 			}
 			if(this.checkGoal(xCord, yCord)) {
 				System.out.println("FINALLY, you found the goal :)");
-				this.showResults();
 				this.quit();
 				continue;
 			}
 		}
+		
+		
 		
 	}
 	
