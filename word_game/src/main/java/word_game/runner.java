@@ -11,9 +11,10 @@ public class runner {
 		Monster monster = new Monster();
 		Treasure treasure = new Treasure();
 		
-		// Setting entity attributes
-		monster.setLocation(0, 0);
+		// Setting attributes
+		monster.setLocation(1, 0);
 		treasure.setLocation(2, 2);
+		newGame.setBounds(5, 5);
 		
 		// Adding entities to collection
 		newGame.addEntity(monster);

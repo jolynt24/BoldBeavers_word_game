@@ -96,7 +96,7 @@ public class Game {
 		for (int i=0; i<entities.size(); i++) {
 			if(foundEntity(entities.get(i), xCord, yCord) == true) {
 				System.out.println(entities.get(i).getMessage());
-				// End game?
+				this.quit();
 			}
 		}
 	}
@@ -144,39 +144,55 @@ public class Game {
 	
 	// FR
 	public void quit() {
-		this.isRunning = false;
+		System.out.println("GAME OVER");
+		System.out.println("Play again? y/n");
+		String input = this.userInput.getInput();
+		xCord = 0;
+		yCord = 0;
+		
+		switch(input.toUpperCase()) {
+		case "Y":
+			this.isRunning = true;
+			break;
+			
+		case "N":
+			this.isRunning = false;
+			break;
+			
+		default:
+			System.out.println("Invalid input");
+			break;
+		}
+		
+		/*
+		if (input == "y") {
+			this.isRunning = true;
+			this.start();
+		}
+		else if (input == "n") {
+			this.isRunning = false;
+		}*/
+		
 	}
 
 	// JT
 	public void start() {
-		
 		System.out.println("WASD to move! :)");
 		
 		//Start of the game
 		System.out.println("======== WELCOME ========");
-		this.setGoal(2, 3); //hard-coded
-		this.setBounds(4, 4); //hard-coded
-		System.out.println("Your current position: (0,0)");
+
 		while(isRunning) {
 			this.showResult();
 			System.out.println("Where would you like to move?");
 
 			this.move(this.userInput.getInput());
 			if(this.outOfBounds(xCord, yCord)) {
-				System.out.println("You are out of bounds! GAME OVER :(");
-				this.quit();
-				continue;
-				
-			}
-			if(this.checkGoal(xCord, yCord)) {
-				System.out.println("FINALLY, you found the goal :)");
+				System.out.println("You are out of bounds!");
 				this.quit();
 				continue;
 			}
 		}
-		
-		
-		
 	}
 	
 }
