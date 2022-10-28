@@ -138,6 +138,7 @@ public class Game {
 			if(this.checkGoal(xCord, yCord)) {
 				System.out.println("FINALLY, you found the goal :)");
 				this.quit();
+				System.exit(0);
 				continue;
 			}
 		}
