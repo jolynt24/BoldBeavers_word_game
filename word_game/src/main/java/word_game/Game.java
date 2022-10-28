@@ -1,5 +1,6 @@
 package word_game;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Game {
@@ -48,18 +49,22 @@ public class Game {
 		case "W":
 			System.out.println("MOVE: UP");
 			yCord ++;
+			checkEntity(xCord, yCord);
 			break;
 		case "A":
 			System.out.println("MOVE: LEFT");
 			xCord --;
+			checkEntity(xCord, yCord);
 			break;
 		case "S":
 			System.out.println("MOVE: DOWN");
 			yCord --;
+			checkEntity(xCord, yCord);
 			break;
 		case "D":
 			System.out.println("MOVE: RIGHT");
 			xCord ++;
+			checkEntity(xCord, yCord);
 			break;
 		default:
 			System.out.println("Invalid move! >:(");
@@ -74,6 +79,19 @@ public class Game {
 			
 			this.quit();
 			
+		}
+		
+	}
+	
+	// Checking whether if the player has encountered the entity 
+	public void checkEntity(int xCord, int yCord) {
+		ArrayList<GameEntity> entities = new ArrayList<GameEntity>();
+		
+		// iterate through the entities and their locations 
+		for (int i; i<entities.size(); i++) {
+			if(xCord == entities.get(i).getX() && yCord == entities.get(i).getY()) {
+				
+			}
 		}
 		
 	}
