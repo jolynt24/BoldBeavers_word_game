@@ -14,11 +14,11 @@ public class UserInput {
 		
 		
 		
-		System.out.println("Please input direction: ");
+		System.out.print("> ");
 	      String input= scan.nextLine();
 	      return input;
 		
-	}	
+	}
 
 	
 	}
