@@ -12,6 +12,7 @@ pipeline {
     }
     stage('Test') {
       steps {
+       sh "cd word_game"
         sh "mvn clean test"
       }
     }
