@@ -74,14 +74,6 @@ public class Game {
 			
 		}
 		
-		boolean is_valid = true;
-		//boolean is_valid = this.checkBounds(goalX, goalY);
-		
-		if (is_valid == false) {
-			
-			this.quit();
-			
-		}
 		
 	}
 

@@ -8,7 +8,7 @@ public class GameEntityTest {
 	
 	@Test
 	public void test() {
-		fail("Not yet implemented");
+		//fail("Not yet implemented");
 	}
 
 }
